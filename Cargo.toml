@@ -1,0 +1,28 @@
+[package]
+name = "leptos-crypto-ws"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Real-time Binance WebSocket client for Leptos — provides live crypto prices as reactive signals"
+repository = "https://github.com/WyattAu/leptos-crypto-ws"
+keywords = ["leptos", "websocket", "crypto", "binance", "real-time"]
+categories = ["wasm", "web-programming", "finance"]
+
+[dependencies]
+leptos = { version = "0.8", default-features = false }
+web-sys = { version = "0.3", features = [
+    "WebSocket", "MessageEvent", "CloseEvent", "ErrorEvent",
+    "Window", "Document",
+] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+gloo-timers = { version = "0.3", features = ["futures"] }
+futures = "0.3"
+
+[features]
+hydrate = ["leptos/hydrate"]
+ssr = ["leptos/ssr"]
+default = ["hydrate"]
