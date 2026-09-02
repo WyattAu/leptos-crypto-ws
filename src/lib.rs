@@ -44,6 +44,8 @@
 //! }
 //! ```
 
+#![deny(missing_docs)]
+
 mod provider;
 mod types;
 
