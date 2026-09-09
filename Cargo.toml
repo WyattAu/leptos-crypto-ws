@@ -2,6 +2,7 @@
 name = "leptos-crypto-ws"
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.85"
 license = "MIT"
 description = "Real-time Binance WebSocket client for Leptos — provides live crypto prices as reactive signals"
 repository = "https://github.com/WyattAu/leptos-crypto-ws"
