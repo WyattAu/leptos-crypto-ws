@@ -40,7 +40,8 @@ fn TickerBar() -> impl IntoView {
             {move || {
                 let data = crypto.get();
                 data.get("BTCUSDT")
-                    .map(|t| format!("${:.2}", t.price.unwrap_or(0.0)))
+                    .and_then(|t| t.price)
+                    .map(|p| format!("${p:.2}"))
                     .unwrap_or_else(|| "--".to_string())
             }}
         </div>

@@ -11,5 +11,5 @@ jobs:
       tier: c
       all-features: true
       loom: false
-      wasm: false
+      wasm: true
       miri: false

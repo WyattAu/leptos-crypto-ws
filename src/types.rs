@@ -25,13 +25,15 @@ pub struct CryptoTickerEntry {
 pub struct BinanceStreamMessage {
     /// Stream name (e.g., "btcusdt@ticker")
     #[serde(rename = "stream")]
+    #[allow(dead_code)]
     pub stream: String,
     /// Parsed ticker data
     pub data: BinanceTickerData,
 }
 
-/// Raw Binance ticker data payload.
+/// Raw Binance ticker data payload. Field names follow Binance's wire format.
 #[derive(Clone, Debug, Deserialize)]
+#[allow(non_snake_case)]
 pub struct BinanceTickerData {
     /// Trading pair symbol
     pub s: String,
@@ -63,8 +65,8 @@ impl BinanceTickerData {
 
 /// Default symbols for the combined stream.
 pub const DEFAULT_SYMBOLS: &[&str] = &[
-    "btcusdt", "ethusdt", "solusdt", "dogeusdt", "xrpusdt",
-    "adausdt", "avaxusdt", "dotusdt", "linkusdt", "bnbusdt",
+    "btcusdt", "ethusdt", "solusdt", "dogeusdt", "xrpusdt", "adausdt", "avaxusdt", "dotusdt",
+    "linkusdt", "bnbusdt",
 ];
 
 /// Build a Binance combined stream URL.
@@ -73,10 +75,14 @@ pub fn build_stream_url(symbols: &[&str]) -> String {
         .iter()
         .map(|s| format!("{}@ticker", s.to_lowercase()))
         .collect();
-    format!("wss://stream.binance.com:9443/stream?streams={}", streams.join("/"))
+    format!(
+        "wss://stream.binance.com:9443/stream?streams={}",
+        streams.join("/")
+    )
 }
 
 #[cfg(test)]
+#[allow(clippy::unwrap_used)]
 mod tests {
     use super::*;
 
@@ -143,10 +149,7 @@ mod tests {
     #[test]
     fn build_stream_url_empty() {
         let url = build_stream_url(&[]);
-        assert_eq!(
-            url,
-            "wss://stream.binance.com:9443/stream?streams="
-        );
+        assert_eq!(url, "wss://stream.binance.com:9443/stream?streams=");
     }
 
     #[test]

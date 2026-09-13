@@ -36,7 +36,8 @@
 //!             {move || {
 //!                 let data = crypto.get();
 //!                 data.get("BTCUSDT")
-//!                     .map(|t| format!("${:.2}", t.price))
+//!                     .and_then(|t| t.price)
+//!                     .map(|p| format!("${p:.2}"))
 //!                     .unwrap_or_else(|| "--".to_string())
 //!             }}
 //!         </div>
@@ -49,5 +50,5 @@
 mod provider;
 mod types;
 
-pub use provider::{CryptoWsProvider, use_crypto_ws};
+pub use provider::{use_crypto_ws, CryptoWsProvider};
 pub use types::CryptoTickerEntry;
