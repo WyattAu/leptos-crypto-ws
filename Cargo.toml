@@ -1,10 +1,10 @@
 [package]
 name = "leptos-crypto-ws"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 rust-version = "1.85"
 license = "MIT"
-description = "Real-time Binance WebSocket client for Leptos — provides live crypto prices as reactive signals"
+description = "Leptos component (see repo)"
 repository = "https://github.com/WyattAu/leptos-crypto-ws"
 keywords = ["leptos", "websocket", "crypto", "binance", "real-time"]
 categories = ["wasm", "web-programming", "finance"]
