@@ -1,14 +1,14 @@
 # leptos-crypto-ws
 
-Real-time Binance WebSocket client for [Leptos](https://leptos.dev/) — provides live crypto prices as reactive signals.
+Real-time Binance WebSocket client for [Leptos](https://leptos.dev/); provides live crypto prices as reactive signals.
 
 ## Features
 
-- **Binance combined stream** — subscribes to multiple ticker streams
-- **Automatic reconnection** — reconnects on disconnect with backoff
-- **Typed data** — structured `CryptoTickerEntry` with price, change, volume
-- **Reactive signals** — updates a `Signal<HashMap>` via Leptos context
-- **Configurable** — custom symbols, default to top 10 by volume
+- **Binance combined stream**; subscribes to multiple ticker streams
+- **Automatic reconnection**; reconnects on disconnect with backoff
+- **Typed data**; structured `CryptoTickerEntry` with price, change, volume
+- **Reactive signals**; updates a `Signal<HashMap>` via Leptos context
+- **Configurable**; custom symbols, default to top 10 by volume
 
 ## Installation
 
@@ -65,8 +65,8 @@ view! {
 
 Leptos component that manages the WebSocket connection.
 
-- `symbols`: `Option<Vec<String>>` — Binance symbols (default: top 10)
-- `children`: `Children` — child components
+- `symbols`: `Option<Vec<String>>`; Binance symbols (default: top 10)
+- `children`: `Children`; child components
 
 ### `use_crypto_ws() -> Signal<HashMap<String, CryptoTickerEntry>>`
 
